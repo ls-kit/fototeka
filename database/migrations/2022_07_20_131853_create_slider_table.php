@@ -18,6 +18,7 @@ class CreateSliderTable extends Migration
             $table->string('name');
             $table->string('last_name');
             $table->string('image');
+            $table->string('mobile_image')->nullable();
             $table->timestamps();
         });
     }

@@ -104,9 +104,15 @@
   .card img {
     height: 305px !important;
   }
+  .d_md_none{
+    display: none;
+  }
 }
 
 @media only screen and (min-width: 520px) {
+    .d_desk_none{
+        display: none;
+    }
   .header-title {
     font-size: 16px;
   }
@@ -539,7 +545,7 @@ l.uppercase {
   background: #a11e22 !important;
 }
 .navbar-nav-light .nav-item .nav-link {
-  background: rgb(189 189 189 / 80%); 
+  background: rgb(189 189 189 / 80%);
   font-size: 16px;
   color: black;
   padding: 10px 20px 10px 20px;
@@ -895,7 +901,7 @@ l.uppercase {
   cursor: pointer;
 }
 
-/* 
+/*
 ******use custom style:majharul
 */
 .object-contain {
@@ -931,7 +937,7 @@ l.uppercase {
     margin-top: 20px;
   }
   .mt-60{
-    margin-top: 20px; 
+    margin-top: 20px;
   }
   .cardboard {
     margin: 20px;
@@ -965,16 +971,16 @@ l.uppercase {
     background-size: cover !important;
   }
 }
-@media (min-width: 992px) { 
+@media (min-width: 992px) {
   .width600 {
     width: 600px;
   }
 }
-@media (min-width: 1500px) { 
+@media (min-width: 1500px) {
   .align1 {
     align-items: flex-end;
   }
 }
-/* 
+/*
 ******use custom style:majharul
 */

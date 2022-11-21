@@ -33,6 +33,12 @@ class SliderController extends Controller
             $file->move('uploads/slider/', $filename);
             $slider->image = $filename;
         }
+        if ($request->hasfile('mobile_image')){
+            $file = $request->file('mobile_image');
+            $m_filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move('uploads/slider/mobile/', $m_filename);
+            $slider->mobile_image = $m_filename;
+        }
         $slider->save();
 
         return redirect('admin/slider')->with('message','Slider Image Added successfully');
@@ -46,6 +52,10 @@ class SliderController extends Controller
             $destination = 'uploads/slider/'.$slider->image;
             if(File::exists($destination)){
                 File::delete($destination);
+            }
+            $destination_m = 'uploads/slider/mobile/'.$slider->mobile_image;
+            if(File::exists($destination_m)){
+                File::delete($destination_m);
             }
             $slider->delete();
             return redirect('admin/slider')->with('message','Image is deleted successfully from the slider');

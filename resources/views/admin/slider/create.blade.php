@@ -30,8 +30,12 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="" >Image</label>
+                        <label for="" >Desktop Image</label>
                         <input type="file" name="image" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" >Mobile Image</label>
+                        <input type="file" name="mobile_image" class="form-control">
                     </div>
 
                     <div class="col-md-12">

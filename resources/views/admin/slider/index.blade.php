@@ -20,7 +20,8 @@
                         <td>ID</td>
                         <td>Name</td>
                         <td>Last Name</td>
-                        <td>Image</td>
+                        <td>Desktop Image</td>
+                        <td>Mobile Image</td>
                         <td>Action</td>
                     </tr>
                     </thead>
@@ -32,6 +33,9 @@
                             <td>{{ $item->last_name}}</td>
                             <td>
                                 <img src="{{ asset('uploads/slider/'.$item->image) }}" width="100px" height="100px" alt="Img">
+                            </td>
+                            <td>
+                                <img src="{{ asset('uploads/slider/mobile/'.$item->mobile_image) }}" width="100px" height="100px" alt="Img">
                             </td>
                             <td>
                                 <a href="{{ url('admin/delete-slider/'.$item->id) }}" class="btn btn-danger">Delete</a>
