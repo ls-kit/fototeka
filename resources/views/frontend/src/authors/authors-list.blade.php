@@ -49,7 +49,7 @@
     <!-- <div class="bottom-height"></div> -->
 @endsection
 
-@section('scripts')   
+@section('scripts')
     <script>
         let swiper = new Swiper(".mySwiper", {
             slidesPerView: 1,

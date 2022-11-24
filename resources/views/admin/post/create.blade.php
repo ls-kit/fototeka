@@ -51,11 +51,11 @@
 
                     <div class="mb-3">
                         <label for="" >Description AL</label>
-                        <textarea type="text" name="description[al]" class="form-control"></textarea>
+                        <textarea id="editor-1" type="text" name="description[al]" class="form-control"></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="" >Description EN</label>
-                        <textarea type="text" name="description[en]" class="form-control"></textarea>
+                        <textarea id="editor-2" type="text" name="description[en]" class="form-control"></textarea>
                     </div>
 
                     <div class="mb-3">
@@ -110,4 +110,21 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.3.1/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor-1' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+
+        ClassicEditor
+        .create( document.querySelector( '#editor-2' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+    </script>
 @endsection

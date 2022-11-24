@@ -25,6 +25,9 @@ class SettingsController extends Controller
         if($settings->page == 'about'){
             $settings->settings = $this->updateAboutPage($data,$settings);
         }
+        if($settings->page == 'footer'){
+            $settings->settings = $this->updateFooter($data,$settings);
+        }
         $settings->update();
 
         return redirect('admin/settings')->with('message','Settings Updated successfully');
@@ -61,6 +64,42 @@ class SettingsController extends Controller
     }
 
     public function updateMainPage($data,$settings){
+        $uploadImgWhite = false;
+        $uploadImgBlack = false;
+        if (isset($data['logoWhite']) && $data['logoWhite'] != null){
+            $file = request()->file('settings.logoWhite');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move('uploads/settings/', $filename);
+            $uploadImgWhite = $filename;
+            $data['logoWhite'] = $filename;
+        }
+        if (isset($data['logoBlack']) && $data['logoBlack'] != null){
+            $file = request()->file('settings.logoBlack');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move('uploads/settings/', $filename);
+            $uploadImgBlack = $filename;
+            $data['logoBlack'] = $filename;
+        }
+        $oldSettings = $settings->settings;
+
+        foreach($settings->settings as $key => $setting){
+            if(isset($data[$key]) && $data[$key] != null) {
+                if($key == 'logoWhite' && $uploadImgWhite != false){
+                    $oldSettings[$key] = $uploadImgWhite;
+                }elseif($key == 'logoBlack' && $uploadImgBlack != false){
+                    $oldSettings[$key] = $uploadImgBlack;
+                }else{
+                    $oldSettings[$key] = $data[$key];
+                }
+            } else {
+                if($key != 'logoWhite' && $key != 'logoBlack')
+                    $oldSettings[$key] = null;
+            }
+        }
+        return $oldSettings;
+    }
+
+    public function updateFooter($data,$settings){
         $uploadImgWhite = false;
         $uploadImgBlack = false;
         if (isset($data['logoWhite']) && $data['logoWhite'] != null){

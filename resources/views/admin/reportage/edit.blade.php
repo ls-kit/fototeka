@@ -33,11 +33,11 @@
 
                     <div class="mb-3">
                         <label>Description AL</label>
-                        <textarea name="description[al]" rows="5" class="form-control" required>{{$reportage->description['al']}}</textarea>
+                        <textarea id="editor-1" name="description[al]" rows="5" class="form-control" required>{{$reportage->description['al']}}</textarea>
                     </div>
                     <div class="mb-3">
                         <label>Description EN</label>
-                        <textarea name="description[en]" rows="5" class="form-control" required>{{$reportage->description['en']}}</textarea>
+                        <textarea id="editor-2" name="description[en]" rows="5" class="form-control" required>{{$reportage->description['en']}}</textarea>
                     </div>
                     <div class="mb-3">
                         <label>Year</label>
@@ -63,4 +63,21 @@
 
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.3.1/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor-1' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+
+        ClassicEditor
+        .create( document.querySelector( '#editor-2' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+    </script>
 @endsection

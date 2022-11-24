@@ -43,9 +43,9 @@
         @endif
         @yield('content')
     </main>
-    @if(Route::current()->getName() == 'home')
+    {{-- @if(Route::current()->getName() == 'home') --}}
         @include('frontend.layout.frontend-footer')
-    @endif
+    {{-- @endif --}}
 </div>
 <script>
     (function (){
