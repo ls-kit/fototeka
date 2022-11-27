@@ -45,13 +45,27 @@ class SettingsController extends Controller
             }
         }
 
+        $uploadMobImg = [];
+        if (request()->has('settings.mobile-images') && \request('settings.mobile-images') != null){
+
+            foreach(\request('settings.mobile-images') as $key2 => $image2){
+                $file2 = $image2;
+                $filename2 = time() . '_'.$key2.'.' . $file2->getClientOriginalExtension();
+                $file2->move('uploads/settings/', $filename2);
+                $uploadMobImg[] = $filename2;
+                $data['mobile-images'][] = $filename2;
+            }
+        }
+
         $oldSettings = $settings->settings;
 
         foreach($settings->settings as $key => $setting){
             if(isset($data[$key]) && $data[$key] != null) {
                 if($key == 'images' && $uploadImg != false){
                     $oldSettings[$key] = $uploadImg;
-                }else{
+                } elseif ($key == 'mobile-images' && $uploadMobImg != false){
+                    $oldSettings[$key] = $uploadMobImg;
+                } else {
                     $oldSettings[$key] = $data[$key];
                 }
             } else {

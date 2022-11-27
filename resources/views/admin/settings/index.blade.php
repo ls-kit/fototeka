@@ -51,6 +51,15 @@
                                                 @endforeach
                                             @endif
                                             <br>
+                                        @elseif($key == 'mobile-images')
+                                            <label for="{!! $key !!}">{!! $key !!}</label>
+                                            <input class="form-control" type="file" id="{!! $key !!}" name="settings[{!! $key !!}][]" multiple>
+                                            @if($setting != null)
+                                                @foreach($setting as $image)
+                                                    <img src="{{ asset('uploads/settings/'.$image) }}" width="100px" height="100px" alt="Img">
+                                                @endforeach
+                                            @endif
+                                            <br>
                                         @else
                                             <label for="{!! $key !!}">{!! $key !!}</label>
                                             <textarea class="form-control" type="text" id="{!! $key !!}" name="settings[{!! $key !!}]" >{!! $setting !!}</textarea>
