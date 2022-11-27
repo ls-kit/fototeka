@@ -28,7 +28,7 @@
                             </a>
                             <h2 class="bio-text" style="font-weight: 600;margin-top: 10px;width:100%;">{{$authors->name}} {{$authors->last_name}}</h2>
                             <p class="bio-text collectionParagraph" style="margin-top: 30px;margin-bottom: 0;">
-                                {{substr($authors->biography[session('lang') != '' ? session('lang') : 'al'],0,445)}}
+                                {!! substr($authors->biography[session('lang') != '' ? session('lang') : 'al'],0,445) !!}
                                 <a href="{!! url('/author/'.$authors->id.'/details') !!}" class="read_more">
                                     @lang('text.read_more')
                                 </a>

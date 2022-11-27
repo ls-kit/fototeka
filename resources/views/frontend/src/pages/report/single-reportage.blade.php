@@ -31,7 +31,7 @@
 
 
                     <h2 class="bio-text" style="font-weight: 500;width: 100%">{{$reportage->name[session('lang') != '' ? session('lang') : 'al']}}</h2>
-                    <p class="bio-text my-2" style="font-size: 17px;">{{$reportage->description[session('lang') != '' ? session('lang') : 'al']}}</p>
+                    <p class="bio-text my-2" style="font-size: 17px;">{!! $reportage->description[session('lang') != '' ? session('lang') : 'al'] !!}</p>
                 </div>
                 <div class="col-12 mt-5">
                     <div class="row">

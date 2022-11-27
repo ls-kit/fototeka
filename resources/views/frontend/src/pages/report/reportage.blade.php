@@ -15,7 +15,7 @@
                             <div class="col-12 col-sm-12 col-md-9 col-lg-10" style="display: flex;align-items: flex-end;flex-wrap: wrap;align-content: flex-end">
                                 <a href="{!! url('/reportage/'.$reportage->id) !!}" style="text-decoration: none">
                                     <h2 class="bio-text mt-2 mt-md-0" style="font-weight: 500;width: 100%">{{$reportage->name[session('lang') != '' ? session('lang') : 'al']}}</h2>
-                                    <p class="bio-text" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;margin-top: 30px;margin-bottom:0;font-size: 16px;font-style: italic">{{$reportage->description[session('lang') != '' ? session('lang') : 'al']}}</p>
+                                    <p class="bio-text" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;margin-top: 30px;margin-bottom:0;font-size: 16px;font-style: italic">{!! $reportage->description[session('lang') != '' ? session('lang') : 'al'] !!}</p>
                                 </a>
                             </div>
                         </div>

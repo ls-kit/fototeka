@@ -26,7 +26,7 @@
                             @lang('text.koleksionet_back')
                         </a>
                         <h2 class="bio-text" style="font-weight: 600;width: 100%;"> {{$post->author->name}} {{$post->author->last_name}} <small>({{$post->original_date}})</small> </h2>
-                        <p class="bio-text" style="margin-top: 30px;font-size: 17px;"> {{$post->description[session('lang') != '' ? session('lang') : 'al']}}</p>
+                        <p class="bio-text" style="margin-top: 30px;font-size: 17px;"> {!! $post->description[session('lang') != '' ? session('lang') : 'al'] !!}</p>
                     </div>
                 </div>
             </div>
