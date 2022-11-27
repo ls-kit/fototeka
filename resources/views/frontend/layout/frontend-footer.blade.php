@@ -13,7 +13,7 @@
 
         </div>
         <div class="row w-100">
-        <p class="text-center pt-3 text-white">{{ $footer }}</p>
+        <p class="text-center pt-3 text-white">{!! $footer !!}</p>
         </div>
     </div>
 </div>
