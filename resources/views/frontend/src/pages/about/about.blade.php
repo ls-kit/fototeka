@@ -17,7 +17,7 @@
     <div class="container pb-100 bio-text mt-60 mt-5">
         <div class="row">
             <div class="col-12" style="margin-bottom: 60px;">
-                <div class="mySwiperImages" style="height: 450px;width: 100%;overflow: hidden">
+                <div class="mySwiperImages d_md_none" style="height: 450px;width: 100%;overflow: hidden">
                     <div class="swiper-wrapper">
                         @if($pageSettings['images'] != null)
                             @foreach($pageSettings['images'] as $image)
@@ -28,7 +28,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="mySwiperImagesMob" style="height: 450px;width: 100%;overflow: hidden">
+                <div class="mySwiperImagesMob d_desk_none" style="height: 450px;width: 100%;overflow: hidden">
                     <div class="swiper-wrapper">
                         @if($pageSettings['mobile-images'] != null)
                             @foreach($pageSettings['mobile-images'] as $image)
