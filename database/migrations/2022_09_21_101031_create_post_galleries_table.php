@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoryGalleriesTable extends Migration
+class CreatePostGalleriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -29,6 +29,6 @@ class CreateCategoryGalleriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('category_galleries');
+        Schema::dropIfExists('post_galleries');
     }
 }

@@ -13,6 +13,7 @@ use App\Models\Reportage;
 use App\Models\Reportage_gallery;
 use App\Models\Settings;
 use App\Models\Slider;
+use App\Models\TermsAndConditions;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
 
@@ -122,5 +123,12 @@ class FrontendController extends Controller
 
     public function contact(){
         return view('frontend.src.pages.contact.contact');
+    }
+
+    public function termsAndConditions()
+    {
+        $data['terms'] = TermsAndConditions::first();
+
+        return view('frontend.src.pages.terms-and-conditions.index', $data);
     }
 }

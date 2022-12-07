@@ -184,6 +184,11 @@ Route::group(['middleware' => ['language']], function () {
 
         Route::get('settings', [Admin\SettingsController::class, 'index']);
         Route::put('update-settings/{settings_id}', [Admin\SettingsController::class, 'update']);
+
+        Route::get('terms-and-conditions', [Admin\TermsAndConditionsController::class, 'index']);
+        Route::put('update-terms', [Admin\TermsAndConditionsController::class, 'update']);
     });
 
+    //Terms and Conditions Page
+    Route::get('/terms-and-conditions', [Frontend\FrontendController::class, 'termsAndConditions'])->name('terms-and-conditions');
 });
