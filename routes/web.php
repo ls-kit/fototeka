@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LanguageController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\Frontend as Frontend;
 use App\Http\Controllers\Admin as Admin;
 
@@ -191,4 +192,12 @@ Route::group(['middleware' => ['language']], function () {
 
     //Terms and Conditions Page
     Route::get('/terms-and-conditions', [Frontend\FrontendController::class, 'termsAndConditions'])->name('terms-and-conditions');
+});
+
+Route::get('/clear', function() {
+    Artisan::call('config:clear');
+    Artisan::call('cache:clear');
+    Artisan::call('route:clear');
+    Artisan::call('view:clear');
+    echo "All clear!";
 });
