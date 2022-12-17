@@ -22,7 +22,7 @@
 
                     <div class="mb-3">
                         <label>Terms and Conditions</label>
-                        <textarea id="editor-1" name="description" rows="5" class="form-control">{{ $terms->description }}</textarea>
+                        <textarea id="editor-1" name="description" rows="5" class="form-control">{{ isset($terms->description) ? $terms->description : '' }}</textarea>
                     </div>
 
                     <div class="col-md-12">

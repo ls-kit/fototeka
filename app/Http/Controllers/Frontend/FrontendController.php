@@ -131,4 +131,27 @@ class FrontendController extends Controller
 
         return view('frontend.src.pages.terms-and-conditions.index', $data);
     }
+
+    public function searchIndex()
+    {
+        return view('frontend.src.pages.search.index');
+    }
+
+    public function searchContent(Request $request)
+    {
+        $data['posts'] = Post::where('title', 'like', '%' . $request->search . '%')
+                         ->orWhere('description', 'like', '%' . $request->search . '%')->get();
+
+        $data['authors'] = Author::where('name', 'like', '%' . $request->search . '%')
+                           ->orWhere('last_name', 'like', '%' . $request->search . '%')
+                           ->orWhere('biography', 'like', '%' . $request->search . '%')->get();
+
+        $data['reportages'] = Reportage::where('name', 'like', '%' . $request->search . '%')
+                           ->orWhere('description', 'like', '%' . $request->search . '%')->get();
+
+        $data['categories'] = Category::where('name', 'like', '%' . $request->search . '%')
+                           ->orWhere('description', 'like', '%' . $request->search . '%')->get();
+
+        return view('frontend.src.pages.search.index', $data);
+    }
 }

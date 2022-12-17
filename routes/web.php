@@ -192,6 +192,10 @@ Route::group(['middleware' => ['language']], function () {
 
     //Terms and Conditions Page
     Route::get('/terms-and-conditions', [Frontend\FrontendController::class, 'termsAndConditions'])->name('terms-and-conditions');
+
+    // SEARCH CONTENT
+    Route::get('/search', [Frontend\FrontendController::class, 'searchIndex'])->name('search.index');
+    Route::post('/search', [Frontend\FrontendController::class, 'searchContent'])->name('search.content');
 });
 
 Route::get('/clear', function() {
