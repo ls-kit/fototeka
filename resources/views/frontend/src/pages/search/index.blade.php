@@ -23,10 +23,10 @@
             </div>
         @endif
 
-        @if (isset($collections))
+        @if (isset($post_collections))
             <div>
-                <h3>Collection</h3>
-                @foreach ($collections as $collection)
+                <h3>Post Gallery</h3>
+                @foreach ($post_collections as $collection)
                     <div>
                         <h6>
                             @if (isset($collection->meta_data['description']['al']))
@@ -36,13 +36,11 @@
                             @endif
                         </h6>
                         <img src="{{ asset("uploads/post/$collection->post_id/$collection->image") }}"
-                            alt="@if (isset($collection->meta_data['description']['al']))
-                                    {!! $collection->meta_data['description']['al'] !!},
+                            alt="@if (isset($collection->meta_data['description']['al'])) {!! $collection->meta_data['description']['al'] !!},
                                 @elseif(!is_array($collection->meta_data['description']))
-                                    {!! $collection->meta_data['description'] !!},
-                                @endif"
+                                    {!! $collection->meta_data['description'] !!}, @endif"
                             width="200px">
-                        <a href="/collection/{{$collection->post_id }}/gallery/{{ $collection->id }}">See more</a>
+                        <a href="/collection/{{ $collection->post_id }}/gallery/{{ $collection->id }}">See more</a>
                     </div>
                 @endforeach
             </div>
@@ -56,6 +54,29 @@
                         <h6>{{ $author->name }}</h6>
                         <img src="{{ asset("uploads/author/$author->image") }}" alt="{{ $author->name }}" width="200px">
                         <a href="/author/{{ $author->id }}">See more</a>
+                    </div>
+                @endforeach
+            </div>
+        @endif
+
+        @if (isset($author_collections))
+            <div>
+                <h3>Author Gallery</h3>
+                @foreach ($author_collections as $collection)
+                    <div>
+                        <h6>
+                            @if (isset($collection->meta_data['description']['al']))
+                                {!! $collection->meta_data['description']['al'] !!},
+                            @elseif(!is_array($collection->meta_data['description']))
+                                {!! $collection->meta_data['description'] !!},
+                            @endif
+                        </h6>
+                        <img src="{{ asset("uploads/author/$collection->author_id/$collection->image") }}"
+                            alt="@if (isset($collection->meta_data['description']['al'])) {!! $collection->meta_data['description']['al'] !!},
+                                @elseif(!is_array($collection->meta_data['description']))
+                                    {!! $collection->meta_data['description'] !!}, @endif"
+                            width="200px">
+                        <a href="/author/{{ $collection->author_id }}/gallery/{{ $collection->id }}">See more</a>
                     </div>
                 @endforeach
             </div>

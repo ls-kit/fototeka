@@ -142,14 +142,18 @@ class FrontendController extends Controller
         $data['posts'] = Post::where('title', 'like', '%' . $request->search . '%')
                          ->orWhere('description', 'like', '%' . $request->search . '%')->get();
 
-        $data['collections'] = PostGallery::where('meta_data', 'like', '%' . $request->search . '%')->get();
+        $data['post_collections'] = PostGallery::where('meta_data', 'like', '%' . $request->search . '%')->get();
 
         $data['authors'] = Author::where('name', 'like', '%' . $request->search . '%')
                            ->orWhere('last_name', 'like', '%' . $request->search . '%')
                            ->orWhere('biography', 'like', '%' . $request->search . '%')->get();
 
+        $data['author_collections'] = AuthorGallery::where('meta_data', 'like', '%' . $request->search . '%')->get();
+
         $data['reportages'] = Reportage::where('name', 'like', '%' . $request->search . '%')
                            ->orWhere('description', 'like', '%' . $request->search . '%')->get();
+
+        // $data['reportage_collections'] = Reportage_gallery::where('meta_data', 'like', '%' . $request->search . '%')->get();
 
         $data['categories'] = Category::where('name', 'like', '%' . $request->search . '%')
                            ->orWhere('description', 'like', '%' . $request->search . '%')->get();
