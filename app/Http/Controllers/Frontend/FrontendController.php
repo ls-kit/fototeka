@@ -142,6 +142,8 @@ class FrontendController extends Controller
         $data['posts'] = Post::where('title', 'like', '%' . $request->search . '%')
                          ->orWhere('description', 'like', '%' . $request->search . '%')->get();
 
+        $data['collections'] = PostGallery::where('meta_data', 'like', '%' . $request->search . '%')->get();
+
         $data['authors'] = Author::where('name', 'like', '%' . $request->search . '%')
                            ->orWhere('last_name', 'like', '%' . $request->search . '%')
                            ->orWhere('biography', 'like', '%' . $request->search . '%')->get();

@@ -23,6 +23,19 @@
             </div>
         @endif
 
+        @if (isset($posts))
+            <div>
+                <h3>Collection</h3>
+                @foreach ($collections as $collection)
+                    <div>
+                        <h6>{{ $collection->meta_data['description'] }}</h6>
+                        <img src="{{ asset("uploads/post/$collection->post_id/$collection->image") }}" alt="{{ $collection->meta_data['description'] }}" width="200px">
+                        <a href="/collection/{{$collection->post_id }}/gallery/{{ $collection->id }}">See more</a>
+                    </div>
+                @endforeach
+            </div>
+        @endif
+
         @if (isset($authors))
             <div>
                 <h3>Authors</h3>
@@ -42,7 +55,7 @@
                 @foreach ($reportages as $reportage)
                     <div>
                         <h6>{{ $reportage->name['en'] }}</h6>
-                        <img src="{{ asset("uploads/reportage/$reportage->image") }}" alt="{{ $reportage->name{'en'} }}" width="200px">
+                        <img src="{{ asset("uploads/reportage/$reportage->image") }}" alt="{{ $reportage->name['en'] }}" width="200px">
                         <a href="/reportage/{{ $reportage->id }}">See more</a>
                     </div>
                 @endforeach
